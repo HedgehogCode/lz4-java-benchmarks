@@ -11,7 +11,7 @@ import net.jpountz.lz4.LZ4Compressor;
 import net.jpountz.lz4.LZ4Factory;
 
 @SuppressWarnings("javadoc")
-public class LZ4JavaBenchmark {
+public class LZ4JavaNativeBenchmark {
 
 	/** State class initializing the compressor */
 	@State(Scope.Thread)
@@ -20,7 +20,7 @@ public class LZ4JavaBenchmark {
 
 		@Setup(Level.Invocation)
 		public void setup() {
-			final LZ4Factory factory = LZ4Factory.fastestInstance();
+			final LZ4Factory factory = LZ4Factory.nativeInstance();
 			compressor = factory.fastCompressor();
 		}
 	}
